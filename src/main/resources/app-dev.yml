@@ -1,0 +1,17 @@
+# ====================================================================
+# Development Environment Profile (app-dev.yml)
+# ====================================================================
+server:
+  port: 8080
+
+solon:
+  app:
+    name: "product-service-dev"
+  logging:
+    logger:
+      "root":
+        level: "INFO"
+      "com.example.product":
+        level: "DEBUG"
+      "com.mybatisflex":
+        level: "DEBUG"

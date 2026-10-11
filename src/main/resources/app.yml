@@ -1,0 +1,37 @@
+# ====================================================================
+# Solon Production-Grade Microservice Configuration
+# ====================================================================
+server:
+  port: 8080
+
+solon:
+  app:
+    name: "product-service"
+    group: "microservices"
+  env: "dev"
+  docs:
+    enable: true
+
+knife4j:
+  enable: true
+
+# MyBatis-Flex and HikariCP Configuration
+mybatis-flex:
+  mapper-locations:
+    - "com.example.product.mapper"
+  configuration:
+    logImpl: "org.apache.ibatis.logging.slf4j.Slf4jImpl"
+    mapUnderscoreToCamelCase: true
+    cacheEnabled: true
+  datasource:
+    ds1:
+      type: "com.zaxxer.hikari.HikariDataSource"
+      driverClassName: "org.h2.Driver"
+      jdbcUrl: "jdbc:h2:mem:productdb;DB_CLOSE_DELAY=-1;MODE=MySQL;INIT=RUNSCRIPT FROM 'classpath:db/schema.sql'\\;RUNSCRIPT FROM 'classpath:db/data.sql'"
+      username: "sa"
+      password: ""
+      maximumPoolSize: 10
+      minimumIdle: 2
+      connectionTimeout: 30000
+      idleTimeout: 600000
+      maxLifetime: 1800000

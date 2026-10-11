@@ -1,0 +1,24 @@
+# ====================================================================
+# Production Environment Profile (app-prod.yml)
+# ====================================================================
+server:
+  port: 8080
+
+solon:
+  app:
+    name: "product-service-prod"
+  docs:
+    enable: false # Documentation typically disabled or secured in production
+  logging:
+    logger:
+      "root":
+        level: "WARN"
+      "com.example.product":
+        level: "INFO"
+
+mybatis-flex:
+  datasource:
+    ds1:
+      maximumPoolSize: 25
+      minimumIdle: 5
+      connectionTimeout: 10000

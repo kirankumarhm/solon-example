@@ -1,0 +1,20 @@
+server:
+  port: 0 # Random available port during testing
+
+solon:
+  app:
+    name: "product-service-test"
+  env: "test"
+  docs:
+    enable: true
+
+mybatis-flex:
+  mapper-locations:
+    - "com.example.product.mapper"
+  datasource:
+    ds1:
+      type: "com.zaxxer.hikari.HikariDataSource"
+      driverClassName: "org.h2.Driver"
+      jdbcUrl: "jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=MySQL;INIT=RUNSCRIPT FROM 'classpath:db/schema.sql'\\;RUNSCRIPT FROM 'classpath:db/data.sql'"
+      username: "sa"
+      password: ""
